@@ -71,6 +71,7 @@ New-Item -Name "fix2.txt" -ItemType File
 14.
 	git graph (log --all --decorate --oneline --graph) kopiera SHA-id för fix2
 	git cherry-pick e7b6e98
+
 16.
 skapa repositoriet
 	git remote add origin https://github.com/Mattan41/GitLab1.git
