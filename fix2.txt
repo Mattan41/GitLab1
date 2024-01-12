@@ -71,3 +71,43 @@ New-Item -Name "fix2.txt" -ItemType File
 14.
 	git graph (log --all --decorate --oneline --graph) kopiera SHA-id för fix2
 	git cherry-pick e7b6e98
+16.
+skapa repositoriet
+	git remote add origin https://github.com/Mattan41/GitLab1.git
+	git push -u origin main
+	git add fix2.txt
+	git commit -m "Add git commands to fix2"
+	git push
+
+17.
+New-Item .gitignore
+$gitIgnore = "*.jar", "/out", "/target", "!target/*.html"
+Set-Content -Path .gitignore -Value $gitIgnore
+
+	git add .gitignore
+	git commit -m "Add gitignore"
+	git push
+18.
+	git tag -a v1.0 -m "Version 1.0"
+19.
+	git rebase -i HEAD~2
+
+fixup -c
+"Add git commands to fix2 and Add .gitignore"
+
+20.
+	git switch -c feature3
+
+lägg till kommadon från 16,17,18,19 och 20
+	git add fix2.txt
+	git commit
+
+	git switch main
+	git merge feature3 --no-ff
+	git pull
+lös konflikt
+	git add fix2.txt
+	git commit
+	git push
+	git push --all origin 
+	git push --tags origin
