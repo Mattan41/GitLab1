@@ -1,0 +1,73 @@
+1.
+cd C:\Users\knish\Documents\GitHub
+	git init lab1
+cd C:\Users\knish\Documents\GitHub\lab1
+
+2.
+$animals = "duck", "moose", "cat"
+Set-Content -Path README.md -Value $animals
+
+3.
+	git add README.md
+	git commit -m "Initial commit"
+
+4.
+	git switch -c feature1
+
+5. 
+
+"dog" | Add-Content -Path README.md
+$content = Get-Content README.md
+$content[1] = $content[1] -replace 'moose','mouse'
+$content | Set-Content README.md
+
+	git add README.md
+	git commit -m "Add dog, replace moose with mouse"
+
+6.
+	git switch main
+
+$content = Get-Content README.md
+$content[1] = $content[1] -replace 'moose','mahmut'
+$content | Set-Content README.md
+
+	git commit -a -m "change moose to mahmut"
+
+7.
+	git merge feature1
+KONFLIKT -> lös
+	git add README.md
+	git commit
+
+8.
+	git tag extinct
+
+9. 
+	git reset HEAD~ --hard
+
+10.
+	git branch feature2
+
+11. 
+(Get-Content README.md) | ForEach-Object {$_ -replace '^\w', $_[0].ToString().ToUpper()} | Set-Content README.md
+
+	git add README.md
+	git commit -m "change first letter of animal to upper case"
+
+12.
+	git switch feature2
+
+New-Item -Name "fix1.txt" -ItemType File
+New-Item -Name "fix2.txt" -ItemType File
+
+	git add fix1.txt
+	git commit -m "Add fix1"
+	git add fix2.txt
+	git commit -m "Add fix2"
+
+13.
+	git switch main
+
+14.
+	git graph (log --all --decorate --oneline --graph) kopiera SHA-id för fix2
+	git cherry-pick e7b6e98
